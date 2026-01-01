@@ -1,0 +1,34 @@
+name: deploy-site
+on:
+  push:
+    branches:
+      - main # あなたのメインブランチ名に合わせてください
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ルートのmdファイルをdocsフォルダに一時的に集約（運用の手間はゼロ）
+      - name: Prepare docs
+        run: |
+          mkdir docs
+          cp *.md docs/
+          # README.mdはindex.mdとして扱う（MkDocsの仕様）
+          mv docs/README.md docs/index.md
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material
+
+      - name: Build and Deploy
+        run: mkdocs gh-pages --force

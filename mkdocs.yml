@@ -1,0 +1,22 @@
+site_name: NRA公開会合 要約アーカイブ
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+# ファイル名だけで自動的にナビゲーションを生成させる設定
+# nav:
+#   - Home: README.md
+#   - 会合要約一覧:
+#       - ...
