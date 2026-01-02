@@ -9,14 +9,12 @@ theme:
 
 plugins:
   - search
+  - social:
+      cards_layout: greeting
+      cards_font: Noto Sans JP # 後述するフォント設定と連動します
 
 markdown_extensions:
   - attr_list
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-# ファイル名だけで自動的にナビゲーションを生成させる設定
-# nav:
-#   - Home: README.md
-#   - 会合要約一覧:
-#       - ...
