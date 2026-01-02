@@ -9,6 +9,7 @@ theme:
     - navigation.expand
     - search.suggest
     - search.highlight
+    - announce.dismiss # ユーザーが×ボタンで閉じられるアナウンスバー
 
 plugins:
   - search
@@ -23,3 +24,6 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+extra:
+  announcement: "【重要】本サイトはAIによる要約アーカイブです。正確性は保証されません。"
