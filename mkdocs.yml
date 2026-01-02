@@ -1,4 +1,6 @@
 site_name: NRA公開会合 要約アーカイブ
+site_url: https://nuc-info-nuc.github.io/NRA_summary/
+
 theme:
   name: material
   language: ja
@@ -10,8 +12,8 @@ theme:
 plugins:
   - search
   - social:
-      cards_layout: greeting
-      cards_font: Noto Sans JP # 後述するフォント設定と連動します
+      cards_layout_options:
+        font_family: Noto Sans JP
 
 markdown_extensions:
   - attr_list
