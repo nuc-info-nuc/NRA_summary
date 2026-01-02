@@ -1,5 +1,6 @@
 site_name: NRA公開会合 要約アーカイブ
 site_url: https://nuc-info-nuc.github.io/NRA_summary/
+copyright: "本サイトのコンテンツは生成AIによって作成されています。正確な情報は原子力規制委員会の公式議事録や会議映像をご確認ください。"
 
 theme:
   name: material
@@ -15,7 +16,7 @@ plugins:
       cards_layout_options:
         font_family: Noto Sans JP
         # 画像の下部に表示される説明文（ここに注意書きを入れる）
-        description: 生成AIによる要約です。正確性は公式の会議映像などで確認してください。
+        description: 生成AIによる要約です。正確な情報は公式の会議映像などで確認してください。
 
 markdown_extensions:
   - attr_list
