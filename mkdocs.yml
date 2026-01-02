@@ -14,6 +14,8 @@ plugins:
   - social:
       cards_layout_options:
         font_family: Noto Sans JP
+        # 画像の下部に表示される説明文（ここに注意書きを入れる）
+        description: 生成AIによる要約です。正確性は公式の会議映像などで確認してください。
 
 markdown_extensions:
   - attr_list
