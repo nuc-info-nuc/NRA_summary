@@ -17,21 +17,24 @@ jobs:
         run: |
           mkdir -p docs
 
-          # 1. 最新5件のリストを作成 (README.mdとindex.md、.pages、.github以外)
+          # 1. 最新リストのヘッダー作成
           echo "### 最新の公開会合 (直近5件)" > latest_list.txt
-          ls -t *.md | grep -vE "README.md|index.md" | head -n 5 | while read line; do
-            # ファイル名からリンクを作成（例: [2024-01-01_会議名](2024-01-01_会議名.md)）
-            title=$(basename "$line" .md)
-            echo "* [$title]($line)" >> latest_list.txt
+
+          # 2. ファイル名の逆順(ls -r)でループを回し、先頭5件の1行目(タイトル)を取得
+          # 2025-01-02.md などのファイルを対象とし、READMEなどは除外
+          ls -r *.md | grep -vE "README.md|index.md" | head -n 5 | while read file; do
+            # 1行目を取得し、Markdownの「# 」を削除してタイトルにする
+            title=$(head -n 1 "$file" | sed 's/^# //')
+            # リンク付きのリスト形式で書き出す
+            echo "* [$title]($file)" >> latest_list.txt
           done
 
-          # 2. README.md の冒頭に最新リストを挿入して docs/index.md を作成
+          # 3. docs/index.md の作成（最新リスト + 元のREADME）
           cat latest_list.txt > docs/index.md
-          echo "" >> docs/index.md
-          echo "---" >> docs/index.md
+          echo -e "\n---\n" >> docs/index.md
           cat README.md >> docs/index.md
 
-          # 3. 残りの全ファイルを docs にコピー
+          # 4. 全ファイルを docs にコピー
           cp -v *.md docs/
 
       - name: Setup Python
