@@ -24,6 +24,13 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+    custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.mermaid_format
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
 
 extra:
   announcement: "【重要】本サイトはAIによる要約アーカイブです。正確性は保証されません。"
